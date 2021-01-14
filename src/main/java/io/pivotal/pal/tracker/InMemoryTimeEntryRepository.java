@@ -21,7 +21,7 @@ public class InMemoryTimeEntryRepository implements  TimeEntryRepository{
         return memoryMap.get(id);
     }
 
-    public TimeEntry find(long timeEntryId) {
+    public TimeEntry find(Long timeEntryId) {
         return memoryMap.get(timeEntryId);
     }
 
@@ -29,13 +29,13 @@ public class InMemoryTimeEntryRepository implements  TimeEntryRepository{
         return new ArrayList(memoryMap.values());
     }
 
-    public TimeEntry update(long eq, TimeEntry any) {
+    public TimeEntry update(Long eq, TimeEntry any) {
         TimeEntry timeEntry = new TimeEntry(eq, any);
         memoryMap.replace(eq, timeEntry);
         return memoryMap.get(eq);
     }
 
-    public void delete(long timeEntryId) {
+    public void delete(Long timeEntryId) {
         memoryMap.remove(timeEntryId);
     }
 }
